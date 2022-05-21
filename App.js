@@ -7,10 +7,12 @@ import {
   Button,
   View,
 } from 'react-native';
+import {Dropdown} from 'react-native-material-dropdown-v2-fixed';
 
 const App = () => {
   const [todoInput, setTodoInput] = useState('');
   const [listInput, setListInput] = useState('');
+  const [dropdownArray, setDropdownArray] = useState([{value: 'Default'}]);
 
   function handleTodoInputChange(value) {
     setTodoInput(value);
@@ -25,7 +27,9 @@ const App = () => {
   }
 
   function addListToDropdown() {
-    console.log(listInput);
+    const copyDropdownArray = [...dropdownArray];
+    copyDropdownArray.push({value: listInput});
+    setDropdownArray(copyDropdownArray);
   }
 
   return (
@@ -47,6 +51,7 @@ const App = () => {
             placeholder="Add new list"
           />
           <Button onPress={() => addListToDropdown()} title="+" />
+          <Dropdown label="Choose a list (optional)" data={dropdownArray} />
         </View>
       </View>
     </SafeAreaView>
