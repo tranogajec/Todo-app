@@ -6,13 +6,26 @@ import {
   TextInput,
   Button,
   View,
+  SectionList,
+  Flatlist,
 } from 'react-native';
-import {Dropdown} from 'react-native-material-dropdown-v2-fixed';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 const App = () => {
   const [todoInput, setTodoInput] = useState('');
   const [listInput, setListInput] = useState('');
-  const [dropdownArray, setDropdownArray] = useState([{value: 'Default'}]);
+  const [dropdownArray, setDropdownArray] = useState([
+    {label: 'Default', value: 'default'},
+  ]);
+  const [chosenList, setChosenList] = useState('');
+  const [todoList, setTodoList] = useState([
+    {title: 'Default', relatedTodos: []},
+  ]);
+  const [open, setOpen] = useState(false);
+
+  function lowerCaseFirstLetter(string) {
+    return string.charAt(0).toLowerCase() + string.slice(1);
+  }
 
   function handleTodoInputChange(value) {
     setTodoInput(value);
@@ -26,10 +39,14 @@ const App = () => {
     setListInput(value);
   }
 
-  function addListToDropdown() {
+  function addList() {
     const copyDropdownArray = [...dropdownArray];
-    copyDropdownArray.push({value: listInput});
+    copyDropdownArray.push({
+      label: listInput,
+      value: lowerCaseFirstLetter(listInput),
+    });
     setDropdownArray(copyDropdownArray);
+    console.log(dropdownArray);
   }
 
   return (
@@ -50,8 +67,23 @@ const App = () => {
             value={listInput}
             placeholder="Add new list"
           />
-          <Button onPress={() => addListToDropdown()} title="+" />
-          <Dropdown label="Choose a list (optional)" data={dropdownArray} />
+          <Button onPress={() => addList()} title="+" />
+          <DropDownPicker
+            open={open}
+            value={chosenList}
+            items={dropdownArray}
+            setOpen={setOpen}
+            setValue={setChosenList}
+            setItems={setDropdownArray}
+            onSelectItem={item => {
+              console.log(item);
+            }}
+          />
+          {/* <Dropdown
+            label="Choose a list (optional)"
+            data={dropdownArray}
+            value={chosenList}
+          /> */}
         </View>
       </View>
     </SafeAreaView>
