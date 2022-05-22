@@ -30,8 +30,7 @@ const styles = StyleSheet.create({
   secondaryButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 10,
+    paddingVertical: 2,
     borderRadius: 4,
     elevation: 3,
     backgroundColor: 'black',
