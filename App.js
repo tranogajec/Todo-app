@@ -70,8 +70,32 @@ const App = () => {
     setListInput('');
   }
 
-  function onPressDelete() {
-    console.log('delete');
+  function onPressDelete(element, index, arrayOfTodos) {
+    const copyTodoList = [...todoList];
+    const copyDropdownArray = [...dropdownArray];
+
+    const requiredListIndex = copyTodoList.findIndex(
+      el => el.relatedTodos === arrayOfTodos,
+    );
+    const requiredListLabel = copyTodoList[requiredListIndex].label;
+    const todosInRequiredList = copyTodoList[requiredListIndex].relatedTodos;
+
+    todosInRequiredList.splice(index, 1);
+
+    // u slučaju brisanja zadnjeg todoa iz dodane liste (ne defaultne) - briše se i lista
+    if (!todosInRequiredList.length && requiredListLabel !== 'Default') {
+      const requiredListInDropdown = copyDropdownArray.findIndex(
+        el => el === requiredListLabel,
+      );
+
+      copyDropdownArray.splice(requiredListInDropdown, 1);
+      copyTodoList.splice(requiredListIndex, 1);
+
+      setDropdownArray(copyDropdownArray);
+      setTodoList(copyTodoList);
+    }
+
+    setTodoList(copyTodoList);
   }
 
   function onPressDone() {
@@ -123,13 +147,15 @@ const App = () => {
             return (
               <View>
                 <Text key={index + list.label}>{list.label}</Text>
-                {list.relatedTodos.map((todo, index) => {
+                {list.relatedTodos.map((todo, index, arrayOfTodos) => {
                   return (
                     <View>
                       <Text key={index + todo.name}>{todo.name}</Text>
                       <TouchableOpacity
                         style={styles.button}
-                        onPress={onPressDelete}>
+                        onPress={() =>
+                          onPressDelete(todo, index, arrayOfTodos)
+                        }>
                         <Text>Delete</Text>
                       </TouchableOpacity>
                       <TouchableOpacity
