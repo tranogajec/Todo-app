@@ -6,6 +6,7 @@ import {
   TextInput,
   Button,
   View,
+  TouchableOpacity,
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 DropDownPicker.setListMode('MODAL');
@@ -16,7 +17,7 @@ const App = () => {
   const [dropdownArray, setDropdownArray] = useState([
     {label: 'Default', value: 'default'},
   ]);
-  const [chosenList, setChosenList] = useState('');
+  const [chosenList, setChosenList] = useState('default');
   const [todoList, setTodoList] = useState([
     {label: 'Default', relatedTodos: []},
   ]);
@@ -31,19 +32,14 @@ const App = () => {
   }
 
   function addTodo() {
-    console.log(todoInput, 'todoInput');
     if (todoInput) {
       const selectedList = chosenList;
-      console.log(selectedList, 'selectedList');
-
+      const todo = {name: todoInput, completed: false};
       const copyTodoList = [...todoList];
-      // copyTodoList.map(el => console.log(el, 'tuuuuuuuuuuuuuuuu'));
       const listInTodoList = copyTodoList.find(
         el => lowerCaseFirstLetter(el.label) === selectedList,
       );
-      console.log(listInTodoList, 'ejeehh');
-      // console.log(copyTodoList, 'ejeehh');
-      const todo = {name: todoInput, completed: false};
+      console.log(listInTodoList, 'lista u koju ce ic tuud');
       listInTodoList.relatedTodos.push(todo);
 
       setTodoList(copyTodoList);
@@ -74,6 +70,14 @@ const App = () => {
     setListInput('');
   }
 
+  function onPressDelete() {
+    console.log('delete');
+  }
+
+  function onPressDone() {
+    console.log('done');
+  }
+
   return (
     <SafeAreaView>
       <View>
@@ -93,27 +97,26 @@ const App = () => {
             placeholder="Add new list"
           />
           <Button onPress={() => addList()} title="+" />
-          <DropDownPicker
-            open={open}
-            value={chosenList}
-            items={dropdownArray}
-            setOpen={setOpen}
-            setValue={setChosenList}
-            setItems={setDropdownArray}
-            placeholder="Select a list (optional)"
-            placeholderStyle={{
-              color: '#73777B',
-            }}
-            searchable={true}
-            searchPlaceholder="Search..."
-            searchTextInputStyle={{
-              color: '#066163',
-            }}
-            labelProps={{
-              numberOfLines: 1,
-            }}
-            listMode="MODAL"
-          />
+          <View>
+            <Text>Select a list (optional)</Text>
+            <DropDownPicker
+              open={open}
+              value={chosenList}
+              items={dropdownArray}
+              setOpen={setOpen}
+              setValue={setChosenList}
+              setItems={setDropdownArray}
+              searchable={true}
+              searchPlaceholder="Search..."
+              searchTextInputStyle={{
+                color: '#066163',
+              }}
+              labelProps={{
+                numberOfLines: 1,
+              }}
+              listMode="MODAL"
+            />
+          </View>
         </View>
         <View>
           {todoList.map((list, index) => {
@@ -124,6 +127,16 @@ const App = () => {
                   return (
                     <View>
                       <Text key={index + todo.name}>{todo.name}</Text>
+                      <TouchableOpacity
+                        style={styles.button}
+                        onPress={onPressDelete}>
+                        <Text>Delete</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity
+                        style={styles.button}
+                        onPress={onPressDone}>
+                        <Text>Done</Text>
+                      </TouchableOpacity>
                     </View>
                   );
                 })}
