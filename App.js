@@ -4,12 +4,11 @@ import {
   SafeAreaView,
   StyleSheet,
   Text,
-  TextInput,
-  Button,
   View,
   TouchableOpacity,
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
+import Button from './Components/Button';
 // DropDownPicker.setListMode('MODAL');
 
 const App = () => {
@@ -123,7 +122,11 @@ const App = () => {
             variant="secondaryType"
             placeholder="Add todo"
           />
-          <Button onPress={() => addTodo()} title="+" />
+          <Button
+            onPress={() => addTodo()}
+            title="+"
+            variant="secondaryButton"
+          />
         </View>
         <View>
           <Input
@@ -131,7 +134,12 @@ const App = () => {
             value={listInput}
             placeholder="Add list"
           />
-          <Button onPress={() => addList()} title="+" />
+          <Button
+            onPress={() => addList()}
+            title="+"
+            variant="secondaryButton"
+          />
+          {/* <Button onPress={() => addList()} title="+" /> */}
           <View>
             <Text>Select a list (optional)</Text>
             <DropDownPicker
