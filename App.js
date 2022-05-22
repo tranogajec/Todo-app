@@ -70,7 +70,7 @@ const App = () => {
     setListInput('');
   }
 
-  function onPressDelete(element, index, arrayOfTodos) {
+  function deleteTodo(todo, index, arrayOfTodos) {
     const copyTodoList = [...todoList];
     const copyDropdownArray = [...dropdownArray];
 
@@ -98,8 +98,17 @@ const App = () => {
     setTodoList(copyTodoList);
   }
 
-  function onPressDone() {
+  function markTodoAsDone(todo, index, arrayOfTodos) {
     console.log('done');
+    const copyTodoList = [...todoList];
+    const requiredListIndex = copyTodoList.findIndex(
+      el => el.relatedTodos === arrayOfTodos,
+    );
+
+    const requiredTodo = copyTodoList[requiredListIndex].relatedTodos[index];
+    requiredTodo.completed = !requiredTodo.completed;
+
+    setTodoList(copyTodoList);
   }
 
   return (
@@ -150,17 +159,25 @@ const App = () => {
                 {list.relatedTodos.map((todo, index, arrayOfTodos) => {
                   return (
                     <View>
-                      <Text key={index + todo.name}>{todo.name}</Text>
+                      <Text
+                        style={
+                          todo.completed
+                            ? styles.completedTodo
+                            : styles.uncompletedTodo
+                        }
+                        key={index + todo.name}>
+                        {todo.name}
+                      </Text>
                       <TouchableOpacity
                         style={styles.button}
-                        onPress={() =>
-                          onPressDelete(todo, index, arrayOfTodos)
-                        }>
+                        onPress={() => deleteTodo(todo, index, arrayOfTodos)}>
                         <Text>Delete</Text>
                       </TouchableOpacity>
                       <TouchableOpacity
                         style={styles.button}
-                        onPress={onPressDone}>
+                        onPress={() =>
+                          markTodoAsDone(todo, index, arrayOfTodos)
+                        }>
                         <Text>Done</Text>
                       </TouchableOpacity>
                     </View>
@@ -175,6 +192,10 @@ const App = () => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  completedTodo: {
+    textDecorationLine: 'line-through',
+  },
+});
 
 export default App;
