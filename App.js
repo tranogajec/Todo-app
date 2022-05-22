@@ -6,10 +6,9 @@ import {
   TextInput,
   Button,
   View,
-  SectionList,
-  Flatlist,
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
+DropDownPicker.setListMode('MODAL');
 
 const App = () => {
   const [todoInput, setTodoInput] = useState('');
@@ -19,7 +18,7 @@ const App = () => {
   ]);
   const [chosenList, setChosenList] = useState('');
   const [todoList, setTodoList] = useState([
-    {title: 'Default', relatedTodos: []},
+    {label: 'Default', relatedTodos: []},
   ]);
   const [open, setOpen] = useState(false);
 
@@ -32,7 +31,24 @@ const App = () => {
   }
 
   function addTodo() {
-    console.log(todoInput);
+    console.log(todoInput, 'todoInput');
+    if (todoInput) {
+      const selectedList = chosenList;
+      console.log(selectedList, 'selectedList');
+
+      const copyTodoList = [...todoList];
+      // copyTodoList.map(el => console.log(el, 'tuuuuuuuuuuuuuuuu'));
+      const listInTodoList = copyTodoList.find(
+        el => lowerCaseFirstLetter(el.label) === selectedList,
+      );
+      console.log(listInTodoList, 'ejeehh');
+      // console.log(copyTodoList, 'ejeehh');
+      const todo = {name: todoInput, completed: false};
+      listInTodoList.relatedTodos.push(todo);
+
+      setTodoList(copyTodoList);
+      setTodoInput('');
+    }
   }
 
   function handleListInputChange(value) {
@@ -47,6 +63,15 @@ const App = () => {
     });
     setDropdownArray(copyDropdownArray);
     console.log(dropdownArray);
+
+    const copyTodoList = [...todoList];
+    copyTodoList.push({
+      label: listInput,
+      relatedTodos: [],
+    });
+
+    setTodoList(copyTodoList);
+    setListInput('');
   }
 
   return (
@@ -75,15 +100,36 @@ const App = () => {
             setOpen={setOpen}
             setValue={setChosenList}
             setItems={setDropdownArray}
-            onSelectItem={item => {
-              console.log(item);
+            placeholder="Select a list (optional)"
+            placeholderStyle={{
+              color: '#73777B',
             }}
+            searchable={true}
+            searchPlaceholder="Search..."
+            searchTextInputStyle={{
+              color: '#066163',
+            }}
+            labelProps={{
+              numberOfLines: 1,
+            }}
+            listMode="MODAL"
           />
-          {/* <Dropdown
-            label="Choose a list (optional)"
-            data={dropdownArray}
-            value={chosenList}
-          /> */}
+        </View>
+        <View>
+          {todoList.map((list, index) => {
+            return (
+              <View>
+                <Text key={index + list.label}>{list.label}</Text>
+                {list.relatedTodos.map((todo, index) => {
+                  return (
+                    <View>
+                      <Text key={index + todo.name}>{todo.name}</Text>
+                    </View>
+                  );
+                })}
+              </View>
+            );
+          })}
         </View>
       </View>
     </SafeAreaView>
