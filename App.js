@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Input from './Components/Input';
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,7 +10,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
-DropDownPicker.setListMode('MODAL');
+// DropDownPicker.setListMode('MODAL');
 
 const App = () => {
   const [todoInput, setTodoInput] = useState('');
@@ -112,22 +113,23 @@ const App = () => {
   }
 
   return (
-    <SafeAreaView>
-      <View>
+    <SafeAreaView style={styles.mainContainer}>
+      <View style={styles.appBody}>
         <Text style={styles.appTitle}>Todo app</Text>
         <View style={styles.inputSection}>
-          <TextInput
+          <Input
             onChangeText={handleTodoInputChange}
             value={todoInput}
-            placeholder="Add your todo"
+            variant="secondaryType"
+            placeholder="Add todo"
           />
           <Button onPress={() => addTodo()} title="+" />
         </View>
         <View>
-          <TextInput
+          <Input
             onChangeText={handleListInputChange}
             value={listInput}
-            placeholder="Add new list"
+            placeholder="Add list"
           />
           <Button onPress={() => addList()} title="+" />
           <View>
@@ -193,9 +195,29 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+
+    // Set content's vertical alignment.
+    verticalAlign: 'top',
+    paddingTop: 30,
+
+    // Set content's horizontal alignment.
+    alignItems: 'center',
+
+    // Set hex color code here.
+    backgroundColor: '#069A8E',
+  },
+  appBody: {flex: 1},
+  appTitle: {
+    fontFamily: 'Times New Roman',
+    fontWeight: 'bold',
+    color: 'black',
+  },
   completedTodo: {
     textDecorationLine: 'line-through',
   },
+  inputSection: {},
 });
 
 export default App;
