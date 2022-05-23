@@ -10,6 +10,7 @@ import {
 import Dropdown from './Components/Dropdown';
 import InputAndButton from './Components/InputAndButton';
 import Todo from './Components/Todo';
+import InputsAndButtons from './Fragments/InputsAndButtons';
 // DropDownPicker.setListMode('MODAL');
 
 const App = () => {
@@ -116,22 +117,20 @@ const App = () => {
     <SafeAreaView style={styles.mainContainer}>
       <View style={styles.appBody}>
         <Text style={styles.appTitle}>Todo app</Text>
-        <InputAndButton
-          onChangeText={handleTodoInputChange}
-          value={todoInput}
-          variantInputType="secondaryType"
-          placeholderType="todo"
-          onPress={() => addTodo()}
-          title="+"
-          variantButtonStyle="secondaryButton"
-        />
-        <InputAndButton
-          onChangeText={handleListInputChange}
-          value={listInput}
-          placeholderType="listToDropdown"
-          title="+"
-          onPress={() => addList()}
-          variantButtonStyle="tertiaryButton"
+        <InputsAndButtons
+          onChangeTextTodo={handleTodoInputChange}
+          valueTodo={todoInput}
+          variantInputTypeTodo="secondaryType"
+          placeholderTypeTodo="todo"
+          onPressTodoButton={() => addTodo()}
+          titleTodo="+"
+          variantButtonStyleTodo="secondaryButton"
+          onChangeTextList={handleListInputChange}
+          valueList={listInput}
+          placeholderTypeListe="listToDropdown"
+          onPressListButton={() => addList()}
+          titleList="+"
+          variantButtonStyleList="tertiaryButton"
         />
         <Dropdown
           label="Select a list (*optional)"
