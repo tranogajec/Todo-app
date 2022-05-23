@@ -25,17 +25,6 @@ const Todo = ({todo, index, onPressDelete, onPressComplete}) => {
           title="✔️"
         />
       </View>
-
-      {/* <TouchableOpacity
-        style={styles.button}
-        onPress={() => deleteTodo(todo, index, arrayOfTodos)}>
-        <Text>Delete</Text>
-      </TouchableOpacity> */}
-      {/* <TouchableOpacity
-        style={styles.button}
-        onPress={() => markTodoAsDone(todo, index, arrayOfTodos)}>
-        <Text>Done</Text>
-      </TouchableOpacity> */}
     </View>
   );
 };

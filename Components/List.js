@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import Todo from './Todo';
 
 const List = ({
@@ -22,7 +22,6 @@ const List = ({
 
     todosInRequiredList.splice(index, 1);
 
-    // u slučaju brisanja zadnjeg todoa iz dodane liste (ne defaultne) - briše se i lista
     if (!todosInRequiredList.length && requiredListLabel !== 'Default') {
       const requiredListInDropdown = copyDropdown.findIndex(
         el => el === requiredListLabel,
@@ -43,7 +42,6 @@ const List = ({
     const requiredListIndex = copyWholeList.findIndex(
       el => el.relatedTodos === arrayOfTodos,
     );
-
     const requiredTodo = copyWholeList[requiredListIndex].relatedTodos[index];
     requiredTodo.completed = !requiredTodo.completed;
 
@@ -52,7 +50,9 @@ const List = ({
 
   return (
     <View>
-      <Text key={index + list.label}>{list.label}</Text>
+      <Text style={styles.title} key={index + list.label}>
+        {list.label}
+      </Text>
       {list.relatedTodos.map((todo, index, arrayOfTodos) => {
         return (
           <Todo
@@ -66,5 +66,12 @@ const List = ({
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 26,
+    fontStyle: 'italic',
+  },
+});
 
 export default List;
