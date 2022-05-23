@@ -7,6 +7,7 @@ const TodoList = ({wholeList, handleWholeList, dropdown, handleDropdown}) => {
     <View>
       {wholeList.map((list, index) => (
         <List
+          key={list + index}
           list={list}
           index={index}
           wholeList={wholeList}

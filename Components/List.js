@@ -50,12 +50,11 @@ const List = ({
 
   return (
     <View>
-      <Text style={styles.title} key={index + list.label}>
-        {list.label}
-      </Text>
+      <Text style={styles.title}>{list.label}</Text>
       {list.relatedTodos.map((todo, index, arrayOfTodos) => {
         return (
           <Todo
+            key={todo + index}
             todo={todo}
             index={index}
             onPressDelete={() => deleteTodo(todo, index, arrayOfTodos)}

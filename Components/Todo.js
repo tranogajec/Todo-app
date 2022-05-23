@@ -7,8 +7,9 @@ const Todo = ({todo, index, onPressDelete, onPressComplete}) => {
     <View style={styles.todoWithButtons}>
       <View style={styles.todoText}>
         <Text
-          style={todo.completed ? styles.completedTodo : styles.uncompletedTodo}
-          key={index + todo.name}>
+          style={
+            todo.completed ? styles.completedTodo : styles.uncompletedTodo
+          }>
           {todo.name}
         </Text>
       </View>
