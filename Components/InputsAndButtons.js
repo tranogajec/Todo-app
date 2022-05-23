@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import InputAndButton from '../Components/InputAndButton';
+import InputAndButton from './InputAndButton';
 
 variantButtonStyle = 'secondaryButton';
 const InputsAndButtons = ({

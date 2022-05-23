@@ -10,7 +10,7 @@ import {
 import Dropdown from './Components/Dropdown';
 import InputAndButton from './Components/InputAndButton';
 import Todo from './Components/Todo';
-import InputsAndButtons from './Fragments/InputsAndButtons';
+import InputsAndButtons from './Components/InputsAndButtons';
 // DropDownPicker.setListMode('MODAL');
 
 const App = () => {
