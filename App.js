@@ -7,10 +7,9 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import DropDownPicker from 'react-native-dropdown-picker';
-import Button from './Components/Button';
 import Dropdown from './Components/Dropdown';
 import InputAndButton from './Components/InputAndButton';
+import Todo from './Components/Todo';
 // DropDownPicker.setListMode('MODAL');
 
 const App = () => {
@@ -158,29 +157,16 @@ const App = () => {
                 <Text key={index + list.label}>{list.label}</Text>
                 {list.relatedTodos.map((todo, index, arrayOfTodos) => {
                   return (
-                    <View>
-                      <Text
-                        style={
-                          todo.completed
-                            ? styles.completedTodo
-                            : styles.uncompletedTodo
-                        }
-                        key={index + todo.name}>
-                        {todo.name}
-                      </Text>
-                      <TouchableOpacity
-                        style={styles.button}
-                        onPress={() => deleteTodo(todo, index, arrayOfTodos)}>
-                        <Text>Delete</Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity
-                        style={styles.button}
-                        onPress={() =>
-                          markTodoAsDone(todo, index, arrayOfTodos)
-                        }>
-                        <Text>Done</Text>
-                      </TouchableOpacity>
-                    </View>
+                    <Todo
+                      todo={todo}
+                      index={index}
+                      onPressDelete={() =>
+                        deleteTodo(todo, index, arrayOfTodos)
+                      }
+                      onPressComplete={() =>
+                        markTodoAsDone(todo, index, arrayOfTodos)
+                      }
+                    />
                   );
                 })}
               </View>
@@ -210,10 +196,9 @@ const styles = StyleSheet.create({
   appTitle: {
     fontFamily: 'Times New Roman',
     fontWeight: 'bold',
+    fontSize: 28,
     color: 'black',
-  },
-  completedTodo: {
-    textDecorationLine: 'line-through',
+    paddingBottom: 6,
   },
 });
 
