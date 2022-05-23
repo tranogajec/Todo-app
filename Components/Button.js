@@ -1,15 +1,15 @@
 import React from 'react';
 import {Text, StyleSheet, Pressable} from 'react-native';
 
-const Button = ({variant, onPress, title}) => {
+const Button = ({variantButtonStyle, onPress, title}) => {
   function variantButton() {
-    if (variant === 'secondaryButton') {
+    if (variantButtonStyle === 'secondaryButton') {
       return styles.secondaryButton;
-    } else if (variant === 'tertiaryButton') {
+    } else if (variantButtonStyle === 'tertiaryButton') {
       return styles.tertiaryButton;
-    } else if (variant === 'quaternaryButton') {
+    } else if (variantButtonStyle === 'quaternaryButton') {
       return styles.quaternaryButton;
-    } else if (variant === 'quinaryButton') {
+    } else if (variantButtonStyle === 'quinaryButton') {
       return styles.quinaryButton;
     } else {
       return styles.primaryButton;
@@ -31,23 +31,29 @@ const styles = StyleSheet.create({
   secondaryButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 2,
-    borderRadius: 4,
+    marginTop: 12,
+    borderRadius: 30,
     elevation: 3,
-    backgroundColor: 'black',
+    backgroundColor: 'red',
+    height: 46,
+    width: 46,
+    marginLeft: 10,
   },
   tertiaryButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 2,
-    borderRadius: 4,
+    marginTop: 12,
+    borderRadius: 30,
     elevation: 3,
     backgroundColor: 'blue',
+    height: 46,
+    width: 46,
+    marginLeft: 10,
   },
   quaternaryButton: {},
   quinaryButton: {},
   text: {
-    color: 'reds',
+    color: 'red',
   },
   text: {
     fontSize: 16,

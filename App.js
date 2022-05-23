@@ -10,6 +10,7 @@ import {
 import DropDownPicker from 'react-native-dropdown-picker';
 import Button from './Components/Button';
 import Dropdown from './Components/Dropdown';
+import InputAndButton from './Components/InputAndButton';
 // DropDownPicker.setListMode('MODAL');
 
 const App = () => {
@@ -116,47 +117,40 @@ const App = () => {
     <SafeAreaView style={styles.mainContainer}>
       <View style={styles.appBody}>
         <Text style={styles.appTitle}>Todo app</Text>
-        <View style={styles.inputSection}>
-          <Input
-            onChangeText={handleTodoInputChange}
-            value={todoInput}
-            variant="secondaryType"
-            placeholder="Add todo"
-          />
-          <Button
-            onPress={() => addTodo()}
-            title="+"
-            variant="secondaryButton"
-          />
-        </View>
-        <View>
-          <Input
-            onChangeText={handleListInputChange}
-            value={listInput}
-            placeholder="Add list"
-          />
-          <Button
-            onPress={() => addList()}
-            title="+"
-            variant="tertiaryButton"
-          />
-          <Dropdown
-            label="Select a list (*optional)"
-            open={open}
-            value={chosenList}
-            items={dropdownArray}
-            setOpen={setOpen}
-            setValue={setChosenList}
-            setItems={setDropdownArray}
-            searchable={true}
-            searchPlaceholder="Search..."
-            labelProps={{
-              numberOfLines: 1,
-            }}
-            listMode="MODAL"
-            variantContent="secondaryContent"
-          />
-        </View>
+        <InputAndButton
+          onChangeText={handleTodoInputChange}
+          value={todoInput}
+          variantInputType="secondaryType"
+          placeholderType="todo"
+          onPress={() => addTodo()}
+          title="+"
+          variantButtonStyle="secondaryButton"
+        />
+        <InputAndButton
+          onChangeText={handleListInputChange}
+          value={listInput}
+          placeholderType="listToDropdown"
+          title="+"
+          onPress={() => addList()}
+          variantButtonStyle="tertiaryButton"
+        />
+        <Dropdown
+          label="Select a list (*optional)"
+          open={open}
+          value={chosenList}
+          items={dropdownArray}
+          setOpen={setOpen}
+          setValue={setChosenList}
+          setItems={setDropdownArray}
+          searchable={true}
+          searchPlaceholder="Search..."
+          labelProps={{
+            numberOfLines: 1,
+          }}
+          listMode="MODAL"
+          variantContent="secondaryContent"
+          closeAfterSelecting={true}
+        />
         <View>
           {todoList.map((list, index) => {
             return (
@@ -221,7 +215,6 @@ const styles = StyleSheet.create({
   completedTodo: {
     textDecorationLine: 'line-through',
   },
-  inputSection: {},
 });
 
 export default App;
