@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Button from './Components/Button';
+import Dropdown from './Components/Dropdown';
 // DropDownPicker.setListMode('MODAL');
 
 const App = () => {
@@ -137,29 +138,24 @@ const App = () => {
           <Button
             onPress={() => addList()}
             title="+"
-            variant="secondaryButton"
+            variant="tertiaryButton"
           />
-          {/* <Button onPress={() => addList()} title="+" /> */}
-          <View>
-            <Text>Select a list (optional)</Text>
-            <DropDownPicker
-              open={open}
-              value={chosenList}
-              items={dropdownArray}
-              setOpen={setOpen}
-              setValue={setChosenList}
-              setItems={setDropdownArray}
-              searchable={true}
-              searchPlaceholder="Search..."
-              searchTextInputStyle={{
-                color: '#066163',
-              }}
-              labelProps={{
-                numberOfLines: 1,
-              }}
-              listMode="MODAL"
-            />
-          </View>
+          <Dropdown
+            label="Select a list (*optional)"
+            open={open}
+            value={chosenList}
+            items={dropdownArray}
+            setOpen={setOpen}
+            setValue={setChosenList}
+            setItems={setDropdownArray}
+            searchable={true}
+            searchPlaceholder="Search..."
+            labelProps={{
+              numberOfLines: 1,
+            }}
+            listMode="MODAL"
+            variantContent="secondaryContent"
+          />
         </View>
         <View>
           {todoList.map((list, index) => {

@@ -15,6 +15,7 @@ const Button = ({variant, onPress, title}) => {
       return styles.primaryButton;
     }
   }
+
   return (
     <Pressable style={variantButton()} onPress={onPress}>
       <Text style={styles.text}>{title}</Text>
@@ -35,7 +36,14 @@ const styles = StyleSheet.create({
     elevation: 3,
     backgroundColor: 'black',
   },
-  tertiaryButton: {},
+  tertiaryButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 2,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: 'blue',
+  },
   quaternaryButton: {},
   quinaryButton: {},
   text: {
