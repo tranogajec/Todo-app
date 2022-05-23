@@ -9,8 +9,8 @@ const Button = ({variantButtonStyle, onPress, title}) => {
       return styles.tertiaryButton;
     } else if (variantButtonStyle === 'quaternaryButton') {
       return styles.quaternaryButton;
-    } else if (variantButtonStyle === 'quinaryButton') {
-      return styles.quinaryButton;
+    } else if (variantButtonStyle === 'completeButton') {
+      return styles.completeButton;
     } else {
       return styles.primaryButton;
     }
@@ -50,7 +50,15 @@ const styles = StyleSheet.create({
     width: 46,
     marginLeft: 10,
   },
-  quaternaryButton: {},
+  quaternaryButton: {
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 3,
+    height: 36,
+    width: 36,
+    marginLeft: 10,
+  },
   quinaryButton: {},
   text: {
     color: 'red',

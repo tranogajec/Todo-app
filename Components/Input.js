@@ -21,6 +21,7 @@ const Input = ({variantInputType, placeholderType, onChangeText, value}) => {
   return (
     <View style={styles.textInputContainer}>
       <TextInput
+        maxLength={22}
         style={variantInput()}
         onChangeText={onChangeText}
         value={value}
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderColor: 'black',
     alignSelf: 'center',
-    width: 220,
+    width: 240,
     borderRadius: 30,
     paddingLeft: 16,
   },
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderColor: 'black',
     alignSelf: 'center',
-    width: 220,
+    width: 240,
     borderRadius: 30,
     paddingLeft: 16,
   },

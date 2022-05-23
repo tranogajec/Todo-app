@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   },
   dropdownContainer: {
     paddingTop: 10,
-    width: 280,
+    width: 300,
   },
   dropdownInput: {
     paddingVertical: 10,

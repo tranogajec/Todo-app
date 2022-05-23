@@ -4,22 +4,28 @@ import Button from './Button';
 
 const Todo = ({todo, index, onPressDelete, onPressComplete}) => {
   return (
-    <View>
-      <Text
-        style={todo.completed ? styles.completedTodo : null}
-        key={index + todo.name}>
-        {todo.name}
-      </Text>
-      <Button
-        variantButtonStyle="quaternaryButton"
-        onPress={onPressDelete}
-        title="Delete"
-      />
-      <Button
-        variantButtonStyle="quinaryButton"
-        onPress={onPressComplete}
-        title="Done"
-      />
+    <View style={styles.todoWithButtons}>
+      <View style={styles.todoText}>
+        <Text
+          style={todo.completed ? styles.completedTodo : styles.uncompletedTodo}
+          key={index + todo.name}>
+          {todo.name}
+        </Text>
+      </View>
+
+      <View style={styles.doneAndDelete}>
+        <Button
+          variantButtonStyle="quaternaryButton"
+          onPress={onPressDelete}
+          title="🗑️"
+        />
+        <Button
+          variantButtonStyle="quaternaryButton"
+          onPress={onPressComplete}
+          title="✔️"
+        />
+      </View>
+
       {/* <TouchableOpacity
         style={styles.button}
         onPress={() => deleteTodo(todo, index, arrayOfTodos)}>
@@ -35,8 +41,29 @@ const Todo = ({todo, index, onPressDelete, onPressComplete}) => {
 };
 
 const styles = StyleSheet.create({
+  todoWithButtons: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 2,
+  },
+  todoText: {
+    width: 200,
+    justifyContent: 'center',
+  },
+  doneAndDelete: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   completedTodo: {
     textDecorationLine: 'line-through',
+    fontWeight: '700',
+    fontSize: 18,
+  },
+  uncompletedTodo: {
+    fontWeight: '700',
+    fontSize: 18,
   },
 });
 
