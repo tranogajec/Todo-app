@@ -17,15 +17,9 @@ const App = () => {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-
-    // Set content's vertical alignment.
     verticalAlign: 'top',
     paddingTop: 30,
-
-    // Set content's horizontal alignment.
     alignItems: 'center',
-
-    // Set hex color code here.
     backgroundColor: '#069A8E',
   },
   appBody: {flex: 1},
