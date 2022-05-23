@@ -12,9 +12,6 @@ const InputsAndDropdown = ({
   const [todoInput, setTodoInput] = useState('');
   const [listInput, setListInput] = useState('');
 
-  // const [dropdown, handleDropdown] = useState([
-  //   {label: 'Default', value: 'default'},
-  // ]);
   const [chosenList, setChosenList] = useState('default');
 
   const [open, setOpen] = useState(false);
