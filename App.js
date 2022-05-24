@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import FullContent from './Fragments/FullContent';
+import FullContent from './src/Fragments/FullContent';
 // DropDownPicker.setListMode('MODAL');
 
 const App = () => {
