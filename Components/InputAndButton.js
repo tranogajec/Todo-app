@@ -9,28 +9,23 @@ const InputAndButton = ({
   variantInputType,
   placeholderType,
   onPress,
-  title,
-  variantButtonStyle,
+  type,
 }) => {
   return (
-    <View style={styles.inputAndButtonSection}>
+    <View style={styles.inputSection}>
       <Input
         onChangeText={onChangeText}
         value={value}
         variantInputType={variantInputType}
         placeholderType={placeholderType}
       />
-      <Button
-        onPress={onPress}
-        title={title}
-        variantButtonStyle={variantButtonStyle}
-      />
+      <Button onPress={onPress} title="+" type={type} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  inputAndButtonSection: {
+  inputSection: {
     display: 'flex',
     flexDirection: 'row',
   },

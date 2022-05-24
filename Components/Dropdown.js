@@ -10,17 +10,14 @@ const Dropdown = ({
   setOpen,
   setValue,
   setItems,
-  searchable,
   searchPlaceholder,
   labelProps,
-  listMode,
-  variantContent,
-  closeAfterSelecting,
+  contentType,
 }) => {
-  function variantContentStyle() {
-    if (variantContent === 'secondaryContent') {
+  function contentStyle() {
+    if (contentType === 'secondaryContent') {
       return styles.secondaryContent;
-    } else return styles.primaryContent;
+    } else return styles.mainContent;
   }
 
   return (
@@ -34,15 +31,15 @@ const Dropdown = ({
           setOpen={setOpen}
           setValue={setValue}
           setItems={setItems}
-          searchable={searchable}
           searchPlaceholder={searchPlaceholder}
           labelProps={labelProps}
-          listMode={listMode}
-          closeAfterSelecting={closeAfterSelecting}
-          modalContentContainerStyle={variantContentStyle()}
+          closeAfterSelecting={true}
+          searchable={true}
+          modalContentContainerStyle={contentStyle()}
           modalProps={{
             animationType: 'fade',
           }}
+          listMode="MODAL"
         />
       </View>
     </View>
@@ -50,14 +47,14 @@ const Dropdown = ({
 };
 
 const styles = StyleSheet.create({
-  secondaryContent: {
+  mainContent: {
     backgroundColor: '#FFD24C',
     fontFamily: 'Times New Roman',
     padding: 30,
     borderWidth: 20,
     borderColor: '#069A8E',
   },
-  primaryContent: {
+  secondaryContent: {
     backgroundColor: '#FFD9C0',
     padding: 20,
     borderWidth: 10,

@@ -69,14 +69,12 @@ const InputsAndDropdown = ({
         variantInputTypeTodo="secondaryType"
         placeholderTypeTodo="todo"
         onPressTodoButton={() => addTodo()}
-        titleTodo="+"
-        variantButtonStyleTodo="secondaryButton"
+        buttonTypeTodo="typeB"
         onChangeTextList={handleListInputChange}
         valueList={listInput}
         placeholderTypeListe="listToDropdown"
         onPressListButton={() => addList()}
-        titleList="+"
-        variantButtonStyleList="tertiaryButton"
+        buttonTypeList="typeC"
       />
       <Dropdown
         label="Select a list (*optional)"
@@ -86,14 +84,11 @@ const InputsAndDropdown = ({
         setOpen={setOpen}
         setValue={setChosenList}
         setItems={handleDropdown}
-        searchable={true}
         searchPlaceholder="Search..."
         labelProps={{
           numberOfLines: 1,
         }}
-        listMode="MODAL"
-        variantContent="secondaryContent"
-        closeAfterSelecting={true}
+        contentType="mainContent"
       />
     </View>
   );

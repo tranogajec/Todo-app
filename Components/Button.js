@@ -1,34 +1,32 @@
 import React from 'react';
 import {Text, StyleSheet, Pressable} from 'react-native';
 
-const Button = ({variantButtonStyle, onPress, title}) => {
-  function variantButton() {
-    if (variantButtonStyle === 'secondaryButton') {
-      return styles.secondaryButton;
-    } else if (variantButtonStyle === 'tertiaryButton') {
-      return styles.tertiaryButton;
-    } else if (variantButtonStyle === 'quaternaryButton') {
-      return styles.quaternaryButton;
-    } else if (variantButtonStyle === 'completeButton') {
-      return styles.completeButton;
+const Button = ({type, onPress, title}) => {
+  const buttonType = () => {
+    if (type === 'typeB') {
+      return styles.typeB;
+    } else if (type === 'typeC') {
+      return styles.typeC;
+    } else if (type === 'typeD') {
+      return styles.typeD;
     } else {
-      return styles.primaryButton;
+      return styles.typeA;
     }
-  }
+  };
 
   return (
-    <Pressable style={variantButton()} onPress={onPress}>
+    <Pressable style={buttonType()} onPress={onPress}>
       <Text style={styles.text}>{title}</Text>
     </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
-  primaryButton: {
+  typeA: {
     color: 'black',
     borderRadius: 10,
   },
-  secondaryButton: {
+  typeB: {
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 12,
@@ -39,7 +37,7 @@ const styles = StyleSheet.create({
     width: 46,
     marginLeft: 10,
   },
-  tertiaryButton: {
+  typeC: {
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 12,
@@ -50,7 +48,7 @@ const styles = StyleSheet.create({
     width: 46,
     marginLeft: 10,
   },
-  quaternaryButton: {
+  typeD: {
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
@@ -58,10 +56,6 @@ const styles = StyleSheet.create({
     height: 36,
     width: 36,
     marginLeft: 10,
-  },
-  quinaryButton: {},
-  text: {
-    color: 'red',
   },
   text: {
     fontSize: 16,

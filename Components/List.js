@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     fontStyle: 'italic',
+    textDecorationLine: 'underline',
   },
 });
 

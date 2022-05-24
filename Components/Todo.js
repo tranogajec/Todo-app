@@ -6,25 +6,14 @@ const Todo = ({todo, index, onPressDelete, onPressComplete}) => {
   return (
     <View style={styles.todoWithButtons}>
       <View style={styles.todoText}>
-        <Text
-          style={
-            todo.completed ? styles.completedTodo : styles.uncompletedTodo
-          }>
+        <Text style={todo.completed ? styles.completed : styles.uncompleted}>
           {todo.name}
         </Text>
       </View>
 
       <View style={styles.doneAndDelete}>
-        <Button
-          variantButtonStyle="quaternaryButton"
-          onPress={onPressDelete}
-          title="🗑️"
-        />
-        <Button
-          variantButtonStyle="quaternaryButton"
-          onPress={onPressComplete}
-          title="✔️"
-        />
+        <Button type="typeD" onPress={onPressDelete} title="🗑️" />
+        <Button type="typeD" onPress={onPressComplete} title="✔️" />
       </View>
     </View>
   );
@@ -46,12 +35,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  completedTodo: {
+  completed: {
     textDecorationLine: 'line-through',
     fontWeight: '700',
     fontSize: 18,
   },
-  uncompletedTodo: {
+  uncompleted: {
     fontWeight: '700',
     fontSize: 18,
   },

@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import InputAndButton from './InputAndButton';
+import InputAndButton from '../Components/InputAndButton';
 
 variantButtonStyle = 'secondaryButton';
 const InputsAndButtons = ({
@@ -10,13 +10,11 @@ const InputsAndButtons = ({
   placeholderTypeTodo,
   onPressTodoButton,
   titleTodo,
-  variantButtonStyleTodo,
   onChangeTextList,
   valueList,
   placeholderTypeList,
   onPressListButton,
   titleList,
-  variantButtonStyleList,
 }) => {
   return (
     <View>
@@ -27,7 +25,7 @@ const InputsAndButtons = ({
         placeholderType={placeholderTypeTodo}
         onPress={onPressTodoButton}
         title={titleTodo}
-        variantButtonStyle={variantButtonStyleTodo}
+        type="typeB"
       />
       <InputAndButton
         onChangeText={onChangeTextList}
@@ -35,7 +33,7 @@ const InputsAndButtons = ({
         placeholderType={placeholderTypeList}
         title={titleList}
         onPress={onPressListButton}
-        variantButtonStyle={variantButtonStyleList}
+        type="typeC"
       />
     </View>
   );
