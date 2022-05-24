@@ -2,15 +2,15 @@ import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 
 const Input = ({inputType, placeholderType, onChangeText, value}) => {
-  const type = () => {
-    if (inputType === 'typeList') {
-      return styles.typeList;
+  const appointType = () => {
+    if (inputType === 'typeB') {
+      return styles.typeB;
     } else {
-      return styles.typeTodo;
+      return styles.typeA;
     }
   };
 
-  const placeholder = () => {
+  const appointPlaceholder = () => {
     if (placeholderType === 'todo') {
       return 'Add todo';
     } else if (placeholderType === 'listToDropdown') {
@@ -22,10 +22,10 @@ const Input = ({inputType, placeholderType, onChangeText, value}) => {
     <View style={styles.textInputContainer}>
       <TextInput
         maxLength={22}
-        style={type()}
+        style={appointType()}
         onChangeText={onChangeText}
         value={value}
-        placeholder={placeholder()}
+        placeholder={appointPlaceholder()}
       />
     </View>
   );
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   textInputContainer: {
     paddingVertical: 10,
   },
-  typeTodo: {
+  typeA: {
     backgroundColor: '#FFD24C',
     borderStyle: 'solid',
     borderColor: 'black',
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     paddingLeft: 16,
   },
-  typeList: {
+  typeB: {
     backgroundColor: '#FFF7BC',
     borderStyle: 'solid',
     borderColor: 'black',

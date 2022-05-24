@@ -1,14 +1,14 @@
 import React from 'react';
 import {Text, StyleSheet, Pressable} from 'react-native';
 
-export const button = {
+const button = {
   typeA: 'typeA',
   typeB: 'typeB',
   typeC: 'typeC',
   typeD: 'typeD',
 };
 
-export const Button = ({type, onPress, title}) => {
+const Button = ({type, onPress, title}) => {
   const appointType = () => {
     if (type === 'typeA') {
       return styles.typeA;
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-// export {button, Button};
+export {button, Button};

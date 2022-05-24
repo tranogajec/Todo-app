@@ -14,10 +14,10 @@ const Dropdown = ({
   labelProps,
   contentType,
 }) => {
-  function contentStyle() {
-    if (contentType === 'secondaryContent') {
-      return styles.secondaryContent;
-    } else return styles.mainContent;
+  function appointContent() {
+    if (contentType === 'typeA') {
+      return styles.typeA;
+    } else return styles.typeB;
   }
 
   return (
@@ -35,7 +35,7 @@ const Dropdown = ({
           labelProps={labelProps}
           closeAfterSelecting={true}
           searchable={true}
-          modalContentContainerStyle={contentStyle()}
+          modalContentContainerStyle={appointContent()}
           modalProps={{
             animationType: 'fade',
           }}
@@ -47,14 +47,14 @@ const Dropdown = ({
 };
 
 const styles = StyleSheet.create({
-  mainContent: {
+  typeB: {
     backgroundColor: '#FFD24C',
     fontFamily: 'Times New Roman',
     padding: 30,
     borderWidth: 20,
     borderColor: '#069A8E',
   },
-  secondaryContent: {
+  typeA: {
     backgroundColor: '#FFD9C0',
     padding: 20,
     borderWidth: 10,

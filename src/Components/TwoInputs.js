@@ -3,7 +3,6 @@ import {View} from 'react-native';
 import InputSection from './InputSection';
 import {button} from './Button';
 
-variantButtonStyle = 'secondaryButton';
 const TwoInputs = ({
   onChangeTextTodo,
   valueTodo,
@@ -25,7 +24,7 @@ const TwoInputs = ({
         type={button.typeB}
       />
       <InputSection
-        inputType="typeList"
+        inputType="typeB"
         onChangeText={onChangeTextList}
         value={valueList}
         placeholderType="listToDropdown"

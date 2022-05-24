@@ -88,7 +88,7 @@ const InputFragment = ({
         labelProps={{
           numberOfLines: 1,
         }}
-        contentType="mainContent"
+        contentType="typeB"
       />
     </View>
   );
