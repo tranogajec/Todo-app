@@ -3,10 +3,10 @@ import {View, StyleSheet} from 'react-native';
 import Button from './Button';
 import Input from './Input';
 
-const InputAndButton = ({
+const InputSection = ({
   onChangeText,
   value,
-  variantInputType,
+  inputType,
   placeholderType,
   onPress,
   type,
@@ -16,7 +16,7 @@ const InputAndButton = ({
       <Input
         onChangeText={onChangeText}
         value={value}
-        variantInputType={variantInputType}
+        inputType={inputType}
         placeholderType={placeholderType}
       />
       <Button onPress={onPress} title="+" type={type} />
@@ -31,4 +31,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InputAndButton;
+export default InputSection;

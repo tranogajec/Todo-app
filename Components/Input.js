@@ -1,16 +1,16 @@
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 
-const Input = ({variantInputType, placeholderType, onChangeText, value}) => {
-  const variantInput = () => {
-    if (variantInputType === 'secondaryType') {
-      return styles.secondaryType;
+const Input = ({inputType, placeholderType, onChangeText, value}) => {
+  const type = () => {
+    if (inputType === 'typeList') {
+      return styles.typeList;
     } else {
-      return styles.primaryType;
+      return styles.typeTodo;
     }
   };
 
-  const variantPlaceholder = () => {
+  const placeholder = () => {
     if (placeholderType === 'todo') {
       return 'Add todo';
     } else if (placeholderType === 'listToDropdown') {
@@ -22,10 +22,10 @@ const Input = ({variantInputType, placeholderType, onChangeText, value}) => {
     <View style={styles.textInputContainer}>
       <TextInput
         maxLength={22}
-        style={variantInput()}
+        style={type()}
         onChangeText={onChangeText}
         value={value}
-        placeholder={variantPlaceholder()}
+        placeholder={placeholder()}
       />
     </View>
   );
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   textInputContainer: {
     paddingVertical: 10,
   },
-  secondaryType: {
+  typeTodo: {
     backgroundColor: '#FFD24C',
     borderStyle: 'solid',
     borderColor: 'black',
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     paddingLeft: 16,
   },
-  primaryType: {
+  typeList: {
     backgroundColor: '#FFF7BC',
     borderStyle: 'solid',
     borderColor: 'black',

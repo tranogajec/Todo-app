@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import InputsAndDropdown from './InputsAndDropdown';
+import InputFragment from './InputFragment';
 import TodoList from '../Components/TodoList';
 import {View} from 'react-native';
 
-const InputsSectionAndTodoList = () => {
+const FullContent = () => {
   const [todoList, setTodoList] = useState([
     {label: 'Default', relatedTodos: []},
   ]);
@@ -13,7 +13,7 @@ const InputsSectionAndTodoList = () => {
 
   return (
     <View>
-      <InputsAndDropdown
+      <InputFragment
         wholeList={todoList}
         handleWholeList={setTodoList}
         dropdown={dropdownArray}
@@ -28,4 +28,4 @@ const InputsSectionAndTodoList = () => {
     </View>
   );
 };
-export default InputsSectionAndTodoList;
+export default FullContent;

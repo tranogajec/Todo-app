@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import InputsAndButtons from '../Components/InputsAndButtons';
+import TwoInputs from '../Components/TwoInputs';
 import Dropdown from '../Components/Dropdown';
 
-const InputsAndDropdown = ({
+const InputFragment = ({
   wholeList,
   handleWholeList,
   dropdown,
@@ -63,7 +63,7 @@ const InputsAndDropdown = ({
 
   return (
     <View>
-      <InputsAndButtons
+      <TwoInputs
         onChangeTextTodo={handleTodoInputChange}
         valueTodo={todoInput}
         variantInputTypeTodo="secondaryType"
@@ -94,4 +94,4 @@ const InputsAndDropdown = ({
   );
 };
 
-export default InputsAndDropdown;
+export default InputFragment;

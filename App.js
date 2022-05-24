@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import InputsSectionAndTodoList from './Fragments/InputsSectionAndTodoList';
+import FullContent from './Fragments/FullContent';
 // DropDownPicker.setListMode('MODAL');
 
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
     <SafeAreaView style={styles.mainContainer}>
       <View style={styles.appBody}>
         <Text style={styles.appTitle}>Todo app</Text>
-        <InputsSectionAndTodoList />
+        <FullContent />
       </View>
     </SafeAreaView>
   );
