@@ -1,21 +1,28 @@
 import React from 'react';
 import {Text, StyleSheet, Pressable} from 'react-native';
 
-const Button = ({type, onPress, title}) => {
-  const buttonType = () => {
-    if (type === 'typeB') {
+export const button = {
+  typeA: 'typeA',
+  typeB: 'typeB',
+  typeC: 'typeC',
+  typeD: 'typeD',
+};
+
+export const Button = ({type, onPress, title}) => {
+  const appointType = () => {
+    if (type === 'typeA') {
+      return styles.typeA;
+    } else if (type === 'typeB') {
       return styles.typeB;
     } else if (type === 'typeC') {
       return styles.typeC;
     } else if (type === 'typeD') {
       return styles.typeD;
-    } else {
-      return styles.typeA;
     }
   };
 
   return (
-    <Pressable style={buttonType()} onPress={onPress}>
+    <Pressable style={appointType()} onPress={onPress}>
       <Text style={styles.text}>{title}</Text>
     </Pressable>
   );
@@ -66,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Button;
+// export {button, Button};

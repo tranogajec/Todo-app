@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import Button from './Button';
+import {Button} from './Button';
+
 import Input from './Input';
 
 const InputSection = ({

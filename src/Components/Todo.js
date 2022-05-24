@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import Button from './Button';
+import {Button, button} from './Button';
 
 const Todo = ({todo, index, onPressDelete, onPressComplete}) => {
   return (
@@ -12,8 +12,8 @@ const Todo = ({todo, index, onPressDelete, onPressComplete}) => {
       </View>
 
       <View style={styles.doneAndDelete}>
-        <Button type="typeD" onPress={onPressDelete} title="🗑️" />
-        <Button type="typeD" onPress={onPressComplete} title="✔️" />
+        <Button type={button.typeD} onPress={onPressDelete} title="🗑️" />
+        <Button type={button.typeD} onPress={onPressComplete} title="✔️" />
       </View>
     </View>
   );

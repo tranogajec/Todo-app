@@ -1,6 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import InputSection from './InputSection';
+import {button} from './Button';
 
 variantButtonStyle = 'secondaryButton';
 const TwoInputs = ({
@@ -21,7 +22,7 @@ const TwoInputs = ({
         placeholderType="todo"
         onPress={onPressTodoButton}
         title={titleTodo}
-        type="typeB"
+        type={button.typeB}
       />
       <InputSection
         inputType="typeList"
@@ -30,7 +31,7 @@ const TwoInputs = ({
         placeholderType="listToDropdown"
         title={titleList}
         onPress={onPressListButton}
-        type="typeC"
+        type={button.typeC}
       />
     </View>
   );
