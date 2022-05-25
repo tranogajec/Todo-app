@@ -1,7 +1,8 @@
 import React from 'react';
 import {View} from 'react-native';
 import InputSection from './InputSection';
-import {button} from './Button';
+import {ButtonType} from './Button';
+import {InputType, InputPlaceholderType} from './Input';
 
 const TwoInputs = ({
   onChangeTextTodo,
@@ -16,21 +17,22 @@ const TwoInputs = ({
   return (
     <View>
       <InputSection
+        inputType={InputType.typeA}
         onChangeText={onChangeTextTodo}
         value={valueTodo}
-        placeholderType="todo"
+        placeholderType={InputPlaceholderType.typeA}
         onPress={onPressTodoButton}
         title={titleTodo}
-        type={button.typeB}
+        type={ButtonType.typeB}
       />
       <InputSection
-        inputType="typeB"
+        inputType={InputType.typeB}
         onChangeText={onChangeTextList}
         value={valueList}
-        placeholderType="listToDropdown"
+        placeholderType={InputPlaceholderType.typeB}
         title={titleList}
         onPress={onPressListButton}
-        type={button.typeC}
+        type={ButtonType.typeC}
       />
     </View>
   );

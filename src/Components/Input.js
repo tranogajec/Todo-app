@@ -1,21 +1,34 @@
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 
+const InputType = {
+  typeA: 'typeA',
+  typeB: 'typeB',
+};
+
+const InputPlaceholderType = {
+  typeA: 'Add todo',
+  typeB: 'Add list to dropdown',
+  typeC: 'Add list',
+};
+
 const Input = ({inputType, placeholderType, onChangeText, value}) => {
   const selectType = () => {
-    if (inputType === 'typeB') {
-      return styles.typeB;
-    } else {
+    if (inputType === InputType.typeA) {
       return styles.typeA;
+    } else if (inputType === InputType.typeB) {
+      return styles.typeB;
     }
   };
 
   const selectPlaceholder = () => {
-    if (placeholderType === 'todo') {
-      return 'Add todo';
-    } else if (placeholderType === 'listToDropdown') {
-      return 'Add list to dropdown';
-    } else return 'Add list';
+    if (placeholderType === InputPlaceholderType.typeA) {
+      return InputPlaceholderType.typeA;
+    } else if (placeholderType === InputPlaceholderType.typeB) {
+      return InputPlaceholderType.typeB;
+    } else if (placeholderType === InputPlaceholderType.typeC) {
+      return InputPlaceholderType.typeC;
+    }
   };
 
   return (
@@ -55,4 +68,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Input;
+export {InputType, InputPlaceholderType, Input};
