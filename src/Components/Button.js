@@ -8,6 +8,12 @@ const ButtonType = {
   typeD: 'typeD',
 };
 
+const ButtonTitle = {
+  typeA: '+',
+  typeB: '🗑️',
+  typeC: '✔️',
+};
+
 const Button = ({type, onPress, title}) => {
   const selectType = () => {
     if (type === ButtonType.typeA) {
@@ -21,56 +27,66 @@ const Button = ({type, onPress, title}) => {
     }
   };
 
+  const selectTitle = () => {
+    if (title === ButtonTitle.typeA) {
+      return ButtonTitle.typeA;
+    } else if (title === ButtonTitle.typeB) {
+      return ButtonTitle.typeB;
+    } else if (title === ButtonTitle.typeC) {
+      return ButtonTitle.typeC;
+    }
+  };
+
   return (
     <Pressable style={selectType()} onPress={onPress}>
-      <Text style={styles.text}>{title}</Text>
+      <Text style={styles.text}>{selectTitle()}</Text>
     </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   typeA: {
-    color: 'black',
     borderRadius: 10,
+    color: 'black',
   },
   typeB: {
     alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 12,
+    backgroundColor: '#9A86A4',
     borderRadius: 30,
     elevation: 3,
-    backgroundColor: '#9A86A4',
     height: 46,
-    width: 46,
+    justifyContent: 'center',
     marginLeft: 10,
+    marginTop: 12,
+    width: 46,
   },
   typeC: {
     alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 12,
+    backgroundColor: '#7D1E6A',
     borderRadius: 30,
     elevation: 3,
-    backgroundColor: '#7D1E6A',
     height: 46,
-    width: 46,
+    justifyContent: 'center',
     marginLeft: 10,
+    marginTop: 12,
+    width: 46,
   },
   typeD: {
-    backgroundColor: 'white',
     alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'white',
     elevation: 3,
     height: 36,
-    width: 36,
+    justifyContent: 'center',
     marginLeft: 10,
+    width: 36,
   },
   text: {
+    color: 'white',
     fontSize: 16,
-    lineHeight: 21,
     fontWeight: 'bold',
     letterSpacing: 0.25,
-    color: 'white',
+    lineHeight: 21,
   },
 });
 
-export {ButtonType, Button};
+export {ButtonType, ButtonTitle, Button};

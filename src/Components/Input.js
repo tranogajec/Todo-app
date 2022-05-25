@@ -35,10 +35,10 @@ const Input = ({inputType, placeholderType, onChangeText, value}) => {
     <View style={styles.textInputContainer}>
       <TextInput
         maxLength={22}
-        style={selectType()}
         onChangeText={onChangeText}
-        value={value}
         placeholder={selectPlaceholder()}
+        style={selectType()}
+        value={value}
       />
     </View>
   );
@@ -49,22 +49,22 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   typeA: {
-    backgroundColor: '#FFD24C',
-    borderStyle: 'solid',
-    borderColor: 'black',
     alignSelf: 'center',
-    width: 240,
+    backgroundColor: '#FFD24C',
+    borderColor: 'black',
     borderRadius: 30,
+    borderStyle: 'solid',
     paddingLeft: 16,
+    width: 240,
   },
   typeB: {
-    backgroundColor: '#FFF7BC',
-    borderStyle: 'solid',
-    borderColor: 'black',
     alignSelf: 'center',
-    width: 240,
+    backgroundColor: '#FFF7BC',
+    borderColor: 'black',
     borderRadius: 30,
+    borderStyle: 'solid',
     paddingLeft: 16,
+    width: 240,
   },
 });
 

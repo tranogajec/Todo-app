@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {Button, button} from './Button';
+import {ButtonType, Button, ButtonTitle} from './Button';
 
 const Todo = ({todo, index, onPressDelete, onPressComplete}) => {
   return (
-    <View style={styles.todoWithButtons}>
+    <View style={styles.todoRow}>
       <View style={styles.todoText}>
         <Text style={todo.completed ? styles.completed : styles.uncompleted}>
           {todo.name}
@@ -12,15 +12,23 @@ const Todo = ({todo, index, onPressDelete, onPressComplete}) => {
       </View>
 
       <View style={styles.doneAndDelete}>
-        <Button type={button.typeD} onPress={onPressDelete} title="🗑️" />
-        <Button type={button.typeD} onPress={onPressComplete} title="✔️" />
+        <Button
+          type={ButtonType.typeD}
+          onPress={onPressDelete}
+          title={ButtonTitle.typeB}
+        />
+        <Button
+          type={ButtonType.typeD}
+          onPress={onPressComplete}
+          title={ButtonTitle.typeC}
+        />
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  todoWithButtons: {
+  todoRow: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',

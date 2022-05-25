@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import {Button} from './Button';
-import {input, placeholder, Input} from './Input';
+import {Button, ButtonTitle} from './Button';
+import {InputType, InputPlaceholderType, Input} from './Input';
 
 const InputSection = ({
   onChangeText,
@@ -14,12 +14,12 @@ const InputSection = ({
   return (
     <View style={styles.inputSection}>
       <Input
-        onChangeText={onChangeText}
-        value={value}
         inputType={inputType}
+        onChangeText={onChangeText}
         placeholderType={placeholderType}
+        value={value}
       />
-      <Button onPress={onPress} title="+" type={type} />
+      <Button onPress={onPress} title={ButtonTitle.typeA} type={type} />
     </View>
   );
 };
