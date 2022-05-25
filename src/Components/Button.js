@@ -9,7 +9,7 @@ const button = {
 };
 
 const Button = ({type, onPress, title}) => {
-  const appointType = () => {
+  const selectType = () => {
     if (type === 'typeA') {
       return styles.typeA;
     } else if (type === 'typeB') {
@@ -22,7 +22,7 @@ const Button = ({type, onPress, title}) => {
   };
 
   return (
-    <Pressable style={appointType()} onPress={onPress}>
+    <Pressable style={selectType()} onPress={onPress}>
       <Text style={styles.text}>{title}</Text>
     </Pressable>
   );

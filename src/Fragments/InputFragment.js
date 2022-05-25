@@ -14,7 +14,7 @@ const InputFragment = ({
 
   const [chosenList, setChosenList] = useState('default');
 
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   function lowerCaseFirstLetter(string) {
     return string.charAt(0).toLowerCase() + string.slice(1);
@@ -77,18 +77,13 @@ const InputFragment = ({
         buttonTypeList="typeC"
       />
       <Dropdown
-        label="Select a list (*optional)"
-        open={open}
+        label="Select a list * (optional)"
+        isOpen={isOpen}
         value={chosenList}
         items={dropdown}
-        setOpen={setOpen}
-        setValue={setChosenList}
-        setItems={handleDropdown}
-        searchPlaceholder="Search..."
-        labelProps={{
-          numberOfLines: 1,
-        }}
-        contentType="typeB"
+        onChangeIsOpen={setIsOpen}
+        placeValue={setChosenList}
+        placeItems={handleDropdown}
       />
     </View>
   );

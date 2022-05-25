@@ -2,7 +2,7 @@ import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
 
 const Input = ({inputType, placeholderType, onChangeText, value}) => {
-  const appointType = () => {
+  const selectType = () => {
     if (inputType === 'typeB') {
       return styles.typeB;
     } else {
@@ -10,7 +10,7 @@ const Input = ({inputType, placeholderType, onChangeText, value}) => {
     }
   };
 
-  const appointPlaceholder = () => {
+  const selectPlaceholder = () => {
     if (placeholderType === 'todo') {
       return 'Add todo';
     } else if (placeholderType === 'listToDropdown') {
@@ -22,10 +22,10 @@ const Input = ({inputType, placeholderType, onChangeText, value}) => {
     <View style={styles.textInputContainer}>
       <TextInput
         maxLength={22}
-        style={appointType()}
+        style={selectType()}
         onChangeText={onChangeText}
         value={value}
-        placeholder={appointPlaceholder()}
+        placeholder={selectPlaceholder()}
       />
     </View>
   );

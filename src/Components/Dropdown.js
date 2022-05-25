@@ -4,42 +4,37 @@ import DropDownPicker from 'react-native-dropdown-picker';
 
 const Dropdown = ({
   label,
-  open,
+  isOpen,
   value,
   items,
-  setOpen,
-  setValue,
-  setItems,
-  searchPlaceholder,
-  labelProps,
-  contentType,
+  onChangeIsOpen,
+  placeValue,
+  placeItems,
 }) => {
-  function appointContent() {
-    if (contentType === 'typeA') {
-      return styles.typeA;
-    } else return styles.typeB;
-  }
-
   return (
     <View style={styles.dropdownContainer}>
       <Text>{label}</Text>
       <View style={styles.dropdownInput}>
         <DropDownPicker
-          open={open}
-          value={value}
-          items={items}
-          setOpen={setOpen}
-          setValue={setValue}
-          setItems={setItems}
-          searchPlaceholder={searchPlaceholder}
-          labelProps={labelProps}
           closeAfterSelecting={true}
-          searchable={true}
-          modalContentContainerStyle={appointContent()}
+          items={items}
+          labelProps={{
+            numberOfLines: 1,
+          }}
+          listItemLabelStyle={styles.listItem}
+          listMode="MODAL"
+          modalContentContainerStyle={styles.dropdownContent}
           modalProps={{
             animationType: 'fade',
           }}
-          listMode="MODAL"
+          open={isOpen}
+          searchable={true}
+          searchPlaceholder="Search..."
+          selectedItemLabelStyle={styles.selectedItem}
+          setItems={placeItems}
+          setOpen={onChangeIsOpen}
+          setValue={placeValue}
+          value={value}
         />
       </View>
     </View>
@@ -47,17 +42,11 @@ const Dropdown = ({
 };
 
 const styles = StyleSheet.create({
-  typeB: {
+  dropdownContent: {
     backgroundColor: '#FFD24C',
     fontFamily: 'Times New Roman',
     padding: 30,
     borderWidth: 20,
-    borderColor: '#069A8E',
-  },
-  typeA: {
-    backgroundColor: '#FFD9C0',
-    padding: 20,
-    borderWidth: 10,
     borderColor: '#069A8E',
   },
   dropdownContainer: {
@@ -66,6 +55,14 @@ const styles = StyleSheet.create({
   },
   dropdownInput: {
     paddingVertical: 10,
+  },
+  listItem: {
+    color: '#069A8E',
+    fontSize: 18,
+  },
+  selectedItem: {
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
   },
 });
 
