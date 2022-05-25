@@ -1,7 +1,6 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import AppContent from './src/Fragments/AppContent';
-// DropDownPicker.setListMode('MODAL');
 
 const App = () => {
   return (
@@ -16,18 +15,18 @@ const App = () => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    flex: 1,
-    verticalAlign: 'top',
-    paddingTop: 30,
     alignItems: 'center',
     backgroundColor: '#069A8E',
+    flex: 1,
+    paddingTop: 30,
+    verticalAlign: 'top',
   },
   appBody: {flex: 1},
   appTitle: {
-    fontFamily: 'Times New Roman',
-    fontWeight: 'bold',
-    fontSize: 28,
     color: 'black',
+    fontFamily: 'Times New Roman',
+    fontSize: 28,
+    fontWeight: 'bold',
     paddingBottom: 6,
   },
 });
