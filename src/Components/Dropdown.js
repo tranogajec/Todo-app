@@ -5,7 +5,6 @@ import DropDownPicker from 'react-native-dropdown-picker';
 const Dropdown = ({
   isOpen,
   items,
-  label,
   onChangeIsOpen,
   placeItems,
   placeValue,
@@ -13,7 +12,7 @@ const Dropdown = ({
 }) => {
   return (
     <View style={styles.dropdownContainer}>
-      <Text>{label}</Text>
+      <Text style={styles.title}>Select a list * (optional)</Text>
       <View style={styles.dropdownInput}>
         <DropDownPicker
           closeAfterSelecting={true}
@@ -63,6 +62,10 @@ const styles = StyleSheet.create({
   selectedItem: {
     fontWeight: 'bold',
     textDecorationLine: 'underline',
+  },
+  title: {
+    fontWeight: '700',
+    fontStyle: 'italic',
   },
 });
 

@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {ButtonType, Button, ButtonTitle} from './Button';
 
-const Todo = ({todo, index, onPressDelete, onPressComplete}) => {
+const Todo = ({onPressComplete, onPressDelete, todo}) => {
   return (
     <View style={styles.todoRow}>
       <View style={styles.todoText}>
@@ -35,22 +35,22 @@ const styles = StyleSheet.create({
     marginVertical: 2,
   },
   todoText: {
-    width: 200,
     justifyContent: 'center',
+    width: 200,
   },
   doneAndDelete: {
+    alignItems: 'center',
     display: 'flex',
     flexDirection: 'row',
-    alignItems: 'center',
   },
   completed: {
-    textDecorationLine: 'line-through',
-    fontWeight: '700',
     fontSize: 18,
+    fontWeight: '700',
+    textDecorationLine: 'line-through',
   },
   uncompleted: {
-    fontWeight: '700',
     fontSize: 18,
+    fontWeight: '700',
   },
 });
 

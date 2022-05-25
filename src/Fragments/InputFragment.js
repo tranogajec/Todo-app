@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 import InputsForm from '../Components/InputsForm';
 import Dropdown from '../Components/Dropdown';
+import {InputPlaceholderType} from '../Components/Input';
+import {ButtonType} from '../Components/Button';
 
 const InputFragment = ({
   wholeList,
@@ -64,26 +66,24 @@ const InputFragment = ({
   return (
     <View>
       <InputsForm
-        onChangeTextTodo={handleTodoInputChange}
-        valueTodo={todoInput}
-        variantInputTypeTodo="secondaryType"
-        placeholderTypeTodo="todo"
-        onPressAddTodoButton={() => addTodo()}
-        buttonTypeTodo="typeB"
+        buttonTypeList={ButtonType.typeC}
+        buttonTypeTodo={ButtonType.typeB}
         onChangeTextList={handleListInputChange}
-        valueList={listInput}
-        placeholderTypeListe="listToDropdown"
+        onChangeTextTodo={handleTodoInputChange}
         onPressAddListButton={() => addList()}
-        buttonTypeList="typeC"
+        onPressAddTodoButton={() => addTodo()}
+        placeholderTypeListe={InputPlaceholderType.typeB}
+        placeholderTypeTodo={InputPlaceholderType.typeA}
+        valueList={listInput}
+        valueTodo={todoInput}
       />
       <Dropdown
-        label="Select a list * (optional)"
         isOpen={isOpen}
-        value={chosenList}
         items={dropdown}
         onChangeIsOpen={setIsOpen}
-        placeValue={setChosenList}
         placeItems={handleDropdown}
+        placeValue={setChosenList}
+        value={chosenList}
       />
     </View>
   );

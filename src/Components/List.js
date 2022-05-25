@@ -2,14 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Todo from './Todo';
 
-const List = ({
-  list,
-  index,
-  wholeList,
-  handleWholeList,
-  dropdown,
-  handleDropdown,
-}) => {
+const List = ({dropdown, handleDropdown, handleWholeList, list, wholeList}) => {
   function deleteTodo(todo, index, arrayOfTodos) {
     const copyWholeList = [...wholeList];
     const copyDropdown = [...dropdown];
@@ -54,11 +47,11 @@ const List = ({
       {list.relatedTodos.map((todo, index, arrayOfTodos) => {
         return (
           <Todo
-            key={todo + index}
-            todo={todo}
             index={index}
-            onPressDelete={() => deleteTodo(todo, index, arrayOfTodos)}
+            key={todo + index}
             onPressComplete={() => markTodoAsDone(todo, index, arrayOfTodos)}
+            onPressDelete={() => deleteTodo(todo, index, arrayOfTodos)}
+            todo={todo}
           />
         );
       })}
