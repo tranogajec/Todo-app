@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import InputFragment from './InputFragment';
+import InputGroup from './InputGroup';
 import TodoList from '../Components/TodoList';
 import {View} from 'react-native';
 
@@ -13,17 +13,17 @@ const FullContent = () => {
 
   return (
     <View>
-      <InputFragment
-        wholeList={todoList}
-        handleWholeList={setTodoList}
+      <InputGroup
+        todoList={todoList}
+        arrangeTodoList={setTodoList}
         dropdown={dropdownArray}
-        handleDropdown={setDropdownArray}
+        arrangeDropdown={setDropdownArray}
       />
       <TodoList
-        wholeList={todoList}
-        handleWholeList={setTodoList}
+        todoList={todoList}
+        arrangeTodoList={setTodoList}
         dropdown={dropdownArray}
-        handleDropdown={setDropdownArray}
+        arrangeDropdown={setDropdownArray}
       />
     </View>
   );

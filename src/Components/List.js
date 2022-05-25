@@ -2,16 +2,16 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Todo from './Todo';
 
-const List = ({dropdown, handleDropdown, handleWholeList, list, wholeList}) => {
+const List = ({arrangeDropdown, arrangeTodoList, dropdown, list, todoList}) => {
   function deleteTodo(todo, index, arrayOfTodos) {
-    const copyWholeList = [...wholeList];
+    const copyTodoList = [...todoList];
     const copyDropdown = [...dropdown];
 
-    const requiredListIndex = copyWholeList.findIndex(
+    const requiredListIndex = copyTodoList.findIndex(
       el => el.relatedTodos === arrayOfTodos,
     );
-    const requiredListLabel = copyWholeList[requiredListIndex].label;
-    const todosInRequiredList = copyWholeList[requiredListIndex].relatedTodos;
+    const requiredListLabel = copyTodoList[requiredListIndex].label;
+    const todosInRequiredList = copyTodoList[requiredListIndex].relatedTodos;
 
     todosInRequiredList.splice(index, 1);
 
@@ -21,24 +21,24 @@ const List = ({dropdown, handleDropdown, handleWholeList, list, wholeList}) => {
       );
 
       copyDropdown.splice(requiredListInDropdown, 1);
-      copyWholeList.splice(requiredListIndex, 1);
+      copyTodoList.splice(requiredListIndex, 1);
 
-      handleDropdown(copyDropdown);
-      handleWholeList(copyWholeList);
+      arrangeDropdown(copyDropdown);
+      arrangeTodoList(copyTodoList);
     }
 
-    handleWholeList(copyWholeList);
+    arrangeTodoList(copyTodoList);
   }
 
   function markTodoAsDone(todo, index, arrayOfTodos) {
-    const copyWholeList = [...wholeList];
-    const requiredListIndex = copyWholeList.findIndex(
+    const copyTodoList = [...todoList];
+    const requiredListIndex = copyTodoList.findIndex(
       el => el.relatedTodos === arrayOfTodos,
     );
-    const requiredTodo = copyWholeList[requiredListIndex].relatedTodos[index];
+    const requiredTodo = copyTodoList[requiredListIndex].relatedTodos[index];
     requiredTodo.completed = !requiredTodo.completed;
 
-    handleWholeList(copyWholeList);
+    arrangeTodoList(copyTodoList);
   }
 
   return (

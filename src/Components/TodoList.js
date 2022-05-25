@@ -2,18 +2,18 @@ import React from 'react';
 import {View} from 'react-native';
 import List from './List';
 
-const TodoList = ({wholeList, handleWholeList, dropdown, handleDropdown}) => {
+const TodoList = ({arrangeDropdown, arrangeTodoList, dropdown, todoList}) => {
   return (
     <View>
-      {wholeList.map((list, index) => (
+      {todoList.map((list, index) => (
         <List
+          arrangeDropdown={arrangeDropdown}
+          arrangeTodoList={arrangeTodoList}
+          dropdown={dropdown}
+          index={index}
           key={list + index}
           list={list}
-          index={index}
-          wholeList={wholeList}
-          handleWholeList={handleWholeList}
-          dropdown={dropdown}
-          handleDropdown={handleDropdown}
+          todoList={todoList}
         />
       ))}
     </View>

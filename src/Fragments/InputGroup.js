@@ -5,17 +5,11 @@ import Dropdown from '../Components/Dropdown';
 import {InputPlaceholderType} from '../Components/Input';
 import {ButtonType} from '../Components/Button';
 
-const InputFragment = ({
-  wholeList,
-  handleWholeList,
-  dropdown,
-  handleDropdown,
-}) => {
+const InputGroup = ({todoList, arrangeTodoList, dropdown, arrangeDropdown}) => {
   const [todoInput, setTodoInput] = useState('');
   const [listInput, setListInput] = useState('');
 
   const [chosenList, setChosenList] = useState('default');
-
   const [isOpen, setIsOpen] = useState(false);
 
   function lowerCaseFirstLetter(string) {
@@ -30,13 +24,13 @@ const InputFragment = ({
     if (todoInput) {
       const selectedList = chosenList;
       const todo = {name: todoInput, completed: false};
-      const copyWholeList = [...wholeList];
-      const listInTodoList = copyWholeList.find(
+      const copyTodoList = [...todoList];
+      const listInTodoList = copyTodoList.find(
         el => lowerCaseFirstLetter(el.label) === selectedList,
       );
       listInTodoList.relatedTodos.push(todo);
 
-      handleWholeList(copyWholeList);
+      arrangeTodoList(copyTodoList);
       setTodoInput('');
     }
   }
@@ -46,21 +40,23 @@ const InputFragment = ({
   }
 
   function addList() {
-    const copyDropdown = [...dropdown];
-    copyDropdown.push({
-      label: listInput,
-      value: lowerCaseFirstLetter(listInput),
-    });
-    handleDropdown(copyDropdown);
+    if (listInput) {
+      const copyDropdown = [...dropdown];
+      copyDropdown.push({
+        label: listInput,
+        value: lowerCaseFirstLetter(listInput),
+      });
+      arrangeDropdown(copyDropdown);
 
-    const copyWholeList = [...wholeList];
-    copyWholeList.push({
-      label: listInput,
-      relatedTodos: [],
-    });
+      const copyTodoList = [...todoList];
+      copyTodoList.push({
+        label: listInput,
+        relatedTodos: [],
+      });
 
-    handleWholeList(copyWholeList);
-    setListInput('');
+      arrangeTodoList(copyTodoList);
+      setListInput('');
+    }
   }
 
   return (
@@ -81,7 +77,7 @@ const InputFragment = ({
         isOpen={isOpen}
         items={dropdown}
         onChangeIsOpen={setIsOpen}
-        placeItems={handleDropdown}
+        placeItems={arrangeDropdown}
         placeValue={setChosenList}
         value={chosenList}
       />
@@ -89,4 +85,4 @@ const InputFragment = ({
   );
 };
 
-export default InputFragment;
+export default InputGroup;
