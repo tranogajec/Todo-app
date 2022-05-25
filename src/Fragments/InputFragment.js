@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import TwoInputs from '../Components/TwoInputs';
+import InputsForm from '../Components/InputsForm';
 import Dropdown from '../Components/Dropdown';
 
 const InputFragment = ({
@@ -63,17 +63,17 @@ const InputFragment = ({
 
   return (
     <View>
-      <TwoInputs
+      <InputsForm
         onChangeTextTodo={handleTodoInputChange}
         valueTodo={todoInput}
         variantInputTypeTodo="secondaryType"
         placeholderTypeTodo="todo"
-        onPressTodoButton={() => addTodo()}
+        onPressAddTodoButton={() => addTodo()}
         buttonTypeTodo="typeB"
         onChangeTextList={handleListInputChange}
         valueList={listInput}
         placeholderTypeListe="listToDropdown"
-        onPressListButton={() => addList()}
+        onPressAddListButton={() => addList()}
         buttonTypeList="typeC"
       />
       <Dropdown

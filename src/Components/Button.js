@@ -14,7 +14,7 @@ const ButtonTitle = {
   typeC: '✔️',
 };
 
-const Button = ({type, onPress, title}) => {
+const Button = ({onPress, title, type}) => {
   const selectType = () => {
     if (type === ButtonType.typeA) {
       return styles.typeA;

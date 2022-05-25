@@ -3,16 +3,16 @@ import {View, StyleSheet} from 'react-native';
 import {Button, ButtonTitle} from './Button';
 import {InputType, InputPlaceholderType, Input} from './Input';
 
-const InputSection = ({
-  onChangeText,
-  value,
+const SingleInputForm = ({
   inputType,
-  placeholderType,
+  onChangeText,
   onPress,
+  placeholderType,
   type,
+  value,
 }) => {
   return (
-    <View style={styles.inputSection}>
+    <View style={styles.singleInputForm}>
       <Input
         inputType={inputType}
         onChangeText={onChangeText}
@@ -25,10 +25,10 @@ const InputSection = ({
 };
 
 const styles = StyleSheet.create({
-  inputSection: {
+  singleInputForm: {
     display: 'flex',
     flexDirection: 'row',
   },
 });
 
-export default InputSection;
+export default SingleInputForm;

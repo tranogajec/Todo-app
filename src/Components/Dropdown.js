@@ -3,13 +3,13 @@ import {Text, View, StyleSheet} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 const Dropdown = ({
-  label,
   isOpen,
-  value,
   items,
+  label,
   onChangeIsOpen,
-  placeValue,
   placeItems,
+  placeValue,
+  value,
 }) => {
   return (
     <View style={styles.dropdownContainer}>

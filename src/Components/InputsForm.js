@@ -1,41 +1,41 @@
 import React from 'react';
 import {View} from 'react-native';
-import InputSection from './InputSection';
+import SingleInputForm from './SingleInputForm';
 import {ButtonType} from './Button';
 import {InputType, InputPlaceholderType} from './Input';
 
-const TwoInputs = ({
-  onChangeTextTodo,
-  valueTodo,
-  onPressTodoButton,
-  titleTodo,
+const InputsForm = ({
   onChangeTextList,
-  valueList,
-  onPressListButton,
+  onChangeTextTodo,
+  onPressAddListButton,
+  onPressAddTodoButton,
   titleList,
+  titleTodo,
+  valueList,
+  valueTodo,
 }) => {
   return (
     <View>
-      <InputSection
+      <SingleInputForm
         inputType={InputType.typeA}
         onChangeText={onChangeTextTodo}
-        value={valueTodo}
+        onPress={onPressAddTodoButton}
         placeholderType={InputPlaceholderType.typeA}
-        onPress={onPressTodoButton}
         title={titleTodo}
         type={ButtonType.typeB}
+        value={valueTodo}
       />
-      <InputSection
+      <SingleInputForm
         inputType={InputType.typeB}
         onChangeText={onChangeTextList}
-        value={valueList}
+        onPress={onPressAddListButton}
         placeholderType={InputPlaceholderType.typeB}
         title={titleList}
-        onPress={onPressListButton}
         type={ButtonType.typeC}
+        value={valueList}
       />
     </View>
   );
 };
 
-export default TwoInputs;
+export default InputsForm;
