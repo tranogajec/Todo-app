@@ -3,10 +3,11 @@ import InputGroup from './InputGroup';
 import TodoList from '../Components/TodoList';
 import {View} from 'react-native';
 
-const FullContent = () => {
+const AppContent = () => {
   const [todoList, setTodoList] = useState([
     {label: 'Default', relatedTodos: []},
   ]);
+
   const [dropdownArray, setDropdownArray] = useState([
     {label: 'Default', value: 'default'},
   ]);
@@ -14,18 +15,18 @@ const FullContent = () => {
   return (
     <View>
       <InputGroup
-        todoList={todoList}
+        arrangeDropdown={setDropdownArray}
         arrangeTodoList={setTodoList}
         dropdown={dropdownArray}
-        arrangeDropdown={setDropdownArray}
+        todoList={todoList}
       />
       <TodoList
-        todoList={todoList}
+        arrangeDropdown={setDropdownArray}
         arrangeTodoList={setTodoList}
         dropdown={dropdownArray}
-        arrangeDropdown={setDropdownArray}
+        todoList={todoList}
       />
     </View>
   );
 };
-export default FullContent;
+export default AppContent;

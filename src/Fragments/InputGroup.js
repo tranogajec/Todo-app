@@ -5,7 +5,7 @@ import Dropdown from '../Components/Dropdown';
 import {InputPlaceholderType} from '../Components/Input';
 import {ButtonType} from '../Components/Button';
 
-const InputGroup = ({todoList, arrangeTodoList, dropdown, arrangeDropdown}) => {
+const InputGroup = ({arrangeDropdown, arrangeTodoList, dropdown, todoList}) => {
   const [todoInput, setTodoInput] = useState('');
   const [listInput, setListInput] = useState('');
 

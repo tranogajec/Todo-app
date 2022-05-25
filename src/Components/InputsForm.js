@@ -15,7 +15,7 @@ const InputsForm = ({
   valueTodo,
 }) => {
   return (
-    <View>
+    <>
       <SingleInputForm
         inputType={InputType.typeA}
         onChangeText={onChangeTextTodo}
@@ -34,7 +34,7 @@ const InputsForm = ({
         type={ButtonType.typeC}
         value={valueList}
       />
-    </View>
+    </>
   );
 };
 

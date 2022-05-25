@@ -41,16 +41,16 @@ const Dropdown = ({
 };
 
 const styles = StyleSheet.create({
+  dropdownContainer: {
+    paddingTop: 10,
+    width: 300,
+  },
   dropdownContent: {
     backgroundColor: '#FFD24C',
     borderColor: '#069A8E',
     borderWidth: 20,
     fontFamily: 'Times New Roman',
     padding: 30,
-  },
-  dropdownContainer: {
-    paddingTop: 10,
-    width: 300,
   },
   dropdownInput: {
     paddingVertical: 10,

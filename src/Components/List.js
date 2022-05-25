@@ -42,7 +42,7 @@ const List = ({arrangeDropdown, arrangeTodoList, dropdown, list, todoList}) => {
   }
 
   return (
-    <View>
+    <>
       <Text style={styles.title}>{list.label}</Text>
       {list.relatedTodos.map((todo, index, arrayOfTodos) => {
         return (
@@ -55,7 +55,7 @@ const List = ({arrangeDropdown, arrangeTodoList, dropdown, list, todoList}) => {
           />
         );
       })}
-    </View>
+    </>
   );
 };
 

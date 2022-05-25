@@ -13,14 +13,14 @@ const Todo = ({onPressComplete, onPressDelete, todo}) => {
 
       <View style={styles.doneAndDelete}>
         <Button
-          type={ButtonType.typeD}
           onPress={onPressDelete}
           title={ButtonTitle.typeB}
+          type={ButtonType.typeD}
         />
         <Button
-          type={ButtonType.typeD}
           onPress={onPressComplete}
           title={ButtonTitle.typeC}
+          type={ButtonType.typeD}
         />
       </View>
     </View>
