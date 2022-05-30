@@ -1,5 +1,4 @@
 import React from 'react';
-import {View} from 'react-native';
 import SingleInputForm from './SingleInputForm';
 import {ButtonType} from './Button';
 import {InputType, InputPlaceholderType} from './Input';

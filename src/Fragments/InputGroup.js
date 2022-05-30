@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
-import InputsForm from '../Components/InputsForm';
-import Dropdown from '../Components/Dropdown';
 import {InputPlaceholderType} from '../Components/Input';
 import {ButtonType} from '../Components/Button';
+import InputsForm from '../Components/InputsForm';
+import Dropdown from '../Components/Dropdown';
 
 const InputGroup = ({arrangeDropdown, arrangeTodoList, dropdown, todoList}) => {
   const [todoInput, setTodoInput] = useState('');
@@ -60,7 +59,7 @@ const InputGroup = ({arrangeDropdown, arrangeTodoList, dropdown, todoList}) => {
   }
 
   return (
-    <View>
+    <>
       <InputsForm
         buttonTypeList={ButtonType.typeC}
         buttonTypeTodo={ButtonType.typeB}
@@ -81,7 +80,7 @@ const InputGroup = ({arrangeDropdown, arrangeTodoList, dropdown, todoList}) => {
         placeValue={setChosenList}
         value={chosenList}
       />
-    </View>
+    </>
   );
 };
 

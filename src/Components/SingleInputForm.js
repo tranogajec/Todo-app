@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Button, ButtonTitle} from './Button';
-import {InputType, InputPlaceholderType, Input} from './Input';
+import {Input} from './Input';
 
 const SingleInputForm = ({
   inputType,
